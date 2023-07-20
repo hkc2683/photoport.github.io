@@ -1,0 +1,136 @@
+
+@charset "UTF-8";
+
+:root {
+    --color-primary: #2C2F48;
+    --color-bg-1: #00dbde;
+    --color-bg-2: #363953;
+    --color-bg-3: #8083a1;
+    --color-highlight: #ff9800;
+    --color-white: hsl(0,0%,90%);
+
+    --container-width-lg: 88%;
+    --container-width-md: 92%; 
+
+    --transition: all 400ms ease;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 3rem;
+    font-size: 6rem;
+    color: var(--color-white);
+}
+
+body {
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.gallery {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    padding: 100px 0;
+}
+
+.gallery .gallery__filter {
+    padding: 0 15px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.gallery .gallery__filter .filter__item {
+    color: var(--color-white);
+    font-size: 18px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    line-height: 1.2;
+    transition: var(--transition);
+}
+
+.gallery .gallery__filter .filter__item.active {
+    color: var(--color-highlight);
+    border-color: var(--color-highlight);
+}
+
+.gallery .gallery__item {
+    width: calc(100%/3);
+    padding: 15px;
+}
+
+.gallery .gallery__item img{
+    transition: 0.7s;
+}
+
+.gallery .gallery__item img:hover {
+    transform: scale(1.1);
+}
+
+.gallery .gallery__item__inner img{
+	width: 100%;
+}
+.gallery .gallery__item.show{
+	animation: fadeIn 0.5s ease;
+}
+
+.gallery .gallery__item.hide {
+    display: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 991px){
+    .gallery .gallery__item{
+        width: 50%;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px){
+    .gallery .gallery__item{
+        width: 100%;
+    }
+    .gallery .gallery__filter.filter__item{
+        margin-bottom: 10px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+}
